@@ -8,16 +8,15 @@ import Offers from "./components/offers.jsx";
 export default function App() {
     return (
         <>
-            <NavBar/>
+            <NavBar />
             <main className="container">
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/ofertas" element={<Offers/>}/>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/offers" element={<Offers />} />
+                    <Route path="*" element={<h2>Página no encontrada</h2>} />
                 </Routes>
-                <Home/>
-
             </main>
-            <Footer/>
+            <Footer />
         </>
     )
 }

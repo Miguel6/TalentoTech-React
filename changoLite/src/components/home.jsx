@@ -1,7 +1,11 @@
 import React from 'react'
 import './../styles/home.css'
+import {useNavigate} from "react-router-dom";
+import {ROUTES} from "../routes/paths.js";
 
 export default function Home() {
+    const navigate = useNavigate();
+
     return (
         <section className="section-home">
             <h1>Bienvenido a Chango Lite</h1>
@@ -9,7 +13,8 @@ export default function Home() {
 
             <div className="main-content">
                 <h2>Descubrí nuestras ofertas</h2>
-                <a className="btn" href="#ofertas">Ver ofertas</a>
+                <button className="btn" onClick={() => navigate(ROUTES.offers)}>Ver ofertas</button>
+
             </div>
         </section>
     )
