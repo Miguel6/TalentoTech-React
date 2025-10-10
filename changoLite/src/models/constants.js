@@ -6,6 +6,10 @@ export const APP = Object.freeze({
 
 });
 
+export const BACKEND_CONNECTION = Object.freeze({
+    BASE_URL: 'https://686a9d7ee559eba908707726.mockapi.io',
+});
+
 export const ICON = Object.freeze({
 });
 
