@@ -6,7 +6,7 @@ export default function NavBar() {
     return (
         <header className="navbar">
             <div className="nav-inner">
-                <a className="brand" href="/changoLite/public">MercaditoJS</a>
+                <a className="brand" href="/changoLite/public">Chango Lite</a>
 
                 <button
                     className="burger"
