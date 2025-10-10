@@ -7,14 +7,12 @@ export default function NavBar() {
         <header className="navbar">
             <div className="nav-inner">
                 <a className="brand" href="/changoLite/public">Chango Lite</a>
-
                 <button
                     className="burger"
                     aria-label="Abrir menú"
                     aria-expanded={open}
-                    onClick={() => setOpen(v => !v)}
-                >
-                    ☰
+                    onClick={() => setOpen(v => !v)}>
+
                 </button>
 
                 <nav className={`nav-links ${open ? 'open' : ''}`}>

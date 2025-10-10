@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    height: calc(100% - 61px);
+    height: calc(100% - var(--footer-height) - var(--header-height) - 22px);
 }
 
 .main-content {
