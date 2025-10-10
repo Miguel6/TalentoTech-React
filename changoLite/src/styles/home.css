@@ -3,13 +3,14 @@
 }
 
 .container {
+    background-color: blueviolet;
     max-width: 100%;
     margin: 0 auto;
     padding: 24px 16px;
     align-items: center;
     justify-content: center;
     display: flex;
-    height: calc(100% - var(--footer-height) - var(--header-height) - 22px);
+    height: calc(100% - var(--footer-height));
 }
 
 .main-content {

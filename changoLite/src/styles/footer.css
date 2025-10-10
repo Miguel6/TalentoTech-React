@@ -6,7 +6,3 @@ footer {
     align-items: center;
     background-color: var(--light-gray);
 }
-footer span{
-    height: var(--footer-height);
-
-}

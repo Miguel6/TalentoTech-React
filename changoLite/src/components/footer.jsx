@@ -1,5 +1,5 @@
 import React from "react";
-import { APP, ICON  } from './../models/constants.js';
+import { APP  } from './../models/constants.js';
 import './../styles/footer.css'
 
 export default function Footer() {
