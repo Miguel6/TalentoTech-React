@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import ProductDetail from '../components/productDetail.jsx'
-import {getProducts} from "../services/products.js";
+import ProductCard from '../components/productCard.jsx'
+import {getProducts} from "../services/products.js"
+import './../styles/product.css'
 
 export default function Product() {
     const [items, setItems] = useState([])
@@ -10,8 +11,7 @@ export default function Product() {
     useEffect(() => {
         const load = async () => {
             try {
-                setLoading(true);
-                setError(null)
+                setLoading(true); setError(null)
                 const data = await getProducts()
                 setItems(Array.isArray(data) ? data : [])
             } catch (e) {
@@ -24,7 +24,7 @@ export default function Product() {
     }, [])
 
     if (loading) return <p>Cargando productos…</p>
-    if (error) return <p style={{color: 'crimson'}}>Ups: {error}</p>
+    if (error)   return <p style={{color:'crimson'}}>Ups: {error}</p>
 
     return (
         <section>
@@ -32,8 +32,8 @@ export default function Product() {
             {items.length === 0 ? (
                 <p>No hay productos para mostrar.</p>
             ) : (
-                <div className="grid">
-                    {items.map(p => <ProductDetail key={p.id} product={p}/>)}
+                <div className="products-grid">{/* ⬅️ antes: grid */}
+                    {items.map(p => <ProductCard key={p.id} product={p} />)}
                 </div>
             )}
         </section>

@@ -4,7 +4,6 @@ import {ROUTES} from './paths'
 import Home from '../components/Home.jsx'
 import Offers from '../components/offers.jsx'
 import Products from '../components/product.jsx'
-import ProductsDetails from '../components/productDetail.jsx'
 import ContactUs from "../components/contactUs";
 
 function NotFound() {
@@ -17,7 +16,7 @@ export default function AppRoutes() {
         {path: ROUTES.offers, element: <Offers/>},
         {path: ROUTES.products, element: <Products/>},
         {path: ROUTES.contactUs, element: <ContactUs/>},
-        {path: ROUTES.productsDetails(), element: <ProductsDetails/>},
+        //{path: ROUTES.productsDetails(), element: <ProductsDetails/>},
         {path: '/home', element: <Navigate to={ROUTES.home} replace/>},
         {path: '*', element: <NotFound/>},
     ])
