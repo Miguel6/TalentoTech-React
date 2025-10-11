@@ -27,15 +27,6 @@
     box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
 }
 
-.btn {
-    display: inline-block;
-    background: var(--primary);
-    color: var(--white);
-    text-decoration: none;
-    padding: 10px 14px;
-    border-radius: 10px;
-    margin-top: 8px;
-}
 
 @media (max-width: 820px) {
     .main-content {

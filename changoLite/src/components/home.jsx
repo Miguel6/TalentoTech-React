@@ -1,5 +1,6 @@
 import React from 'react'
 import './../styles/home.css'
+import './../styles/buttons.css'
 import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../routes/paths.js";
 import {APP} from './../models/constants.js';

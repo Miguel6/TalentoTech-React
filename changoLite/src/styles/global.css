@@ -65,14 +65,6 @@ body {
     color: var(--text);
 }
 
-.cart-btn {
-    border: none;
-    background: var(--primary);
-    color: var(--white);
-    border-radius: 10px;
-    padding: 8px 10px;
-    cursor: pointer;
-}
 
 @media (max-width: 680px) {
     .burger {

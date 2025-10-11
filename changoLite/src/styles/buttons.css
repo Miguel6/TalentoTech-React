@@ -1,0 +1,18 @@
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.cart-btn {
+    border: none;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+}
