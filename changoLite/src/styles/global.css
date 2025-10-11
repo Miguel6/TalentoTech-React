@@ -10,11 +10,11 @@ html, body, #root {
 
 body {
     margin: 0;
-    /*color: var(--text);*/
     background: var(--bg);
     font-family: system-ui, "Segoe UI Symbol";
     background-image: url("./../assets/background.png")!important;
 }
+
 
 .navbar {
     height: var(--header-height);
@@ -62,7 +62,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--text);
+    color: var(--hover-primary);
 }
 
 

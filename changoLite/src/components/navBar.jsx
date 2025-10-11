@@ -19,7 +19,7 @@ export default function NavBar(){
                 <NavLink to={ROUTES.offers} onClick={() => setOpen(false)}>Ofertas</NavLink>
                 <NavLink to={ROUTES.products} onClick={() => setOpen(false)}>Productos</NavLink>
                 <NavLink to={ROUTES.contactUs} onClick={() => setOpen(false)}>Contacto</NavLink>
-                <button className="cart-btn" title="Carrito">
+                <button className="btn cart-btn" title="Carrito">
                     <i className="fa-solid fa-cart-shopping"></i>
                 </button>
             </nav>
