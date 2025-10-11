@@ -27,7 +27,7 @@ export default function Product() {
     if (error)   return <p style={{color:'crimson'}}>Ups: {error}</p>
 
     return (
-        <section>
+        <section className="products-container">
             <h1>Productos</h1>
             {items.length === 0 ? (
                 <p>No hay productos para mostrar.</p>
