@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { ROUTES } from '../routes/paths'
+import {APP} from './../models/constants.js';
 
 export default function NavBar(){
     const [open, setOpen] = useState(false)
@@ -8,7 +9,7 @@ export default function NavBar(){
     return (
         <header className="navbar">
             <Link className="brand" to={ROUTES.home} onClick={() => setOpen(false)}>
-                Chango Lite
+                {APP.NAME}
             </Link>
 
             <button className="burger" onClick={() => setOpen(v => !v)}>☰</button>

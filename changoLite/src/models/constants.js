@@ -1,5 +1,5 @@
 export const APP = Object.freeze({
-    NAME: 'Chango Lite',
+    NAME: 'Aura Animal',
     VERSION: '1.0.0',
     YEAR: '2025',
     FOOTER_DESCRIPTION: 'Todos los derechos reservados'
