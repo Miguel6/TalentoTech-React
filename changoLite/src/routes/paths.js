@@ -3,7 +3,7 @@ export const ROUTES = {
     offers: '/offers',
     products: '/products',
     contactUs: '/contact-us',
-    productsDetails: (id = ':id') => `/products/${id}`,
+    productDetail: (id = ':id') => `/products/${id}`,
     login: '/login',
     checkout: '/checkout',
 };

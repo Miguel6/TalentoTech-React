@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
     return (
         <div
             className="product-card"
-            onClick={() => navigate(`/products/${id}`)}
+            onClick={() => navigate(`/products/${id}`, { state: { product } })}
             style={{ cursor: 'pointer' }}
         >
             <div className="media">

@@ -5,6 +5,7 @@ import Home from '../components/Home.jsx'
 import Offers from '../components/offers.jsx'
 import Products from '../components/product.jsx'
 import ContactUs from "../components/contactUs";
+import ProductsDetail from "../components/productDetail.jsx";
 
 function NotFound() {
     return <h2>Página no encontrada</h2>
@@ -16,7 +17,7 @@ export default function AppRoutes() {
         {path: ROUTES.offers, element: <Offers/>},
         {path: ROUTES.products, element: <Products/>},
         {path: ROUTES.contactUs, element: <ContactUs/>},
-        //{path: ROUTES.productsDetails(), element: <ProductsDetails/>},
+        {path: ROUTES.productDetail(), element: <ProductsDetail/>},
         {path: '/home', element: <Navigate to={ROUTES.home} replace/>},
         {path: '*', element: <NotFound/>},
     ])
