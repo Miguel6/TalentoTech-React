@@ -2,9 +2,11 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './../styles/product.css'
 import './../styles/product-card.css'
+import { useCart } from '../context/cart-context.jsx'
 
 export default function ProductCard({ product }) {
     const navigate = useNavigate()
+    const { addItem } = useCart()
     const { id, name, description, price, urlImage, category, stock, brand, rating, reviews } = product
 
     return (
@@ -28,7 +30,7 @@ export default function ProductCard({ product }) {
             <button
                 className="btn"
                 disabled={stock <= 0}
-                onClick={(e) => { e.stopPropagation(); /* addToCart(product) */ }}
+                onClick={(e) => { e.stopPropagation(); addItem(product, 1); }}
             >
                 {stock > 0 ? 'Agregar al carrito' : 'Sin stock'}
             </button>

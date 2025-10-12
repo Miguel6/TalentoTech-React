@@ -10,6 +10,11 @@ export const BACKEND_CONNECTION = Object.freeze({
     BASE_URL: 'https://686a9d7ee559eba908707726.mockapi.io',
 });
 
-export const ICON = Object.freeze({
+export const CART_CONFIG = Object.freeze({
+    LOCAL_STORAGE_NAME: 'cart-aura-animal',
+    ADD_ITEM: 'add-item',
+    UPDATE_QUANTITY: 'update-qty',
+    REMOVE_ITEM: 'remove-item',
+    CLEAR: 'clear'
 });
 

@@ -1,12 +1,14 @@
 import React, { useState, useMemo } from 'react'
 import { useLocation, Navigate } from 'react-router-dom'
 import './../styles/product-detail.css'
+import { useCart } from '../context/cart-context.jsx'
 
 const currency = (n) =>
     new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(n)
 
 export default function ProductDetailPage() {
     const { state } = useLocation()
+    const { addItem } = useCart()
     const product = state?.product
     if (!product) return <Navigate to="/products" replace />
 
@@ -82,7 +84,9 @@ export default function ProductDetailPage() {
 
 
 
-                    <button className="btn" disabled={!canAdd}>
+                    <button className="btn" disabled={!canAdd}
+                            onClick={(e) => { e.stopPropagation(); addItem(product, quantity); }}
+                    >
                         {canAdd ? `Agregar ${quantity} al carrito` : 'Sin stock'}
                     </button>
                 </div>

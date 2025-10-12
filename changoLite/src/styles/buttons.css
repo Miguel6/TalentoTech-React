@@ -9,10 +9,29 @@
     border: none;
 }
 
-.btn:hover{
+.btn:hover {
     background: var(--hover-primary);
 }
+
 .cart-btn {
     padding: 8px 10px;
     margin: 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: #ff6b35;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 6px;
+    border-radius: 999px;
+    min-width: 18px;
+    text-align: center;
 }
