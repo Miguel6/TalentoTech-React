@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './../styles/product.css'
+import './../styles/product-card.css'
 
 export default function ProductCard({ product }) {
     const navigate = useNavigate()
@@ -22,14 +23,15 @@ export default function ProductCard({ product }) {
                 <small className="meta">
                     {brand} · {category}
                 </small>
-                <button
-                    className="btn"
-                    disabled={stock <= 0}
-                    onClick={(e) => { e.stopPropagation(); /* addToCart(product) */ }}
-                >
-                    {stock > 0 ? 'Agregar al carrito' : 'Sin stock'}
-                </button>
+
             </div>
+            <button
+                className="btn"
+                disabled={stock <= 0}
+                onClick={(e) => { e.stopPropagation(); /* addToCart(product) */ }}
+            >
+                {stock > 0 ? 'Agregar al carrito' : 'Sin stock'}
+            </button>
         </div>
     )
 }

@@ -4,7 +4,6 @@ export default function Offers() {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        // Ejemplo: más adelante acá traeremos datos de la API
     }, [])
 
     return (

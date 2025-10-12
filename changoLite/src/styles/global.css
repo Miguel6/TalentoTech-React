@@ -12,7 +12,7 @@ body {
     margin: 0;
     background: var(--bg);
     font-family: system-ui, "Segoe UI Symbol";
-    background-image: url("./../assets/background.png")!important;
+    background-image: url("./../assets/background.png") !important;
 }
 
 
@@ -38,6 +38,12 @@ body {
     font-weight: 700;
     text-decoration: none;
     letter-spacing: .3px;
+    font-size: 1.5em;
+    color: var(--white);
+}
+
+.brand:hover {
+    color: var(--hover-primary) !important;
 }
 
 .burger {
@@ -67,10 +73,18 @@ body {
 
 
 @media (max-width: 680px) {
-    .burger {
-        display: block;
+    .brand-title {
+        display: none;
     }
 
+    .burger {
+        display: block;
+        width: 13%;
+    }
+
+    .nav-links a {
+        color: var(--primary);
+    }
     .nav-links {
         position: absolute;
         top: 56px;

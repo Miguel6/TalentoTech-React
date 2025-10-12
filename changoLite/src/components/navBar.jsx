@@ -9,7 +9,7 @@ export default function NavBar(){
     return (
         <header className="navbar">
             <Link className="brand" to={ROUTES.home} onClick={() => setOpen(false)}>
-                {APP.NAME}
+                <i className="fa-solid fa-shop"></i> <span className="brand-title">{APP.NAME}</span>
             </Link>
 
             <button className="burger" onClick={() => setOpen(v => !v)}>☰</button>
