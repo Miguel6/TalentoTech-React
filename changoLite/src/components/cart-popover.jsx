@@ -86,7 +86,7 @@ export default function CartPopover({ open, onClose }) {
 
                     <footer className="cart-popover-footer">
                         <div className="actions">
-                            <a className="btn" href="/cart" onClick={onClose}>Ver carrito</a>
+                            <a className="btn" onClick={onClose}>Pagar</a>
                         </div>
 
                         <div className="total-row">
