@@ -31,7 +31,7 @@ export default function CartPopover({ open, onClose }) {
             <header className="cart-popover-header">
                 <h3>Tu carrito</h3>
                 {items.length > 0 && (
-                    <button className="link" onClick={clear}>Vaciar</button>
+                    <button className="link" onClick={clear}>Limpiar</button>
                 )}
             </header>
 
@@ -45,48 +45,53 @@ export default function CartPopover({ open, onClose }) {
                         {items.map(it => (
                             <div key={it.id} className="cart-item">
                                 <img src={it.urlImage} alt={it.name} />
-                                <div className="cart-item__info">
-                                    <strong className="name">{it.name}</strong>
-                                    <div className="qty-line">
-                                        <div className="qty">
-                                            <button
-                                                onClick={() => updateQty(it.id, it.qty - 1, it.stock)}
-                                                disabled={it.qty <= 1}
-                                                aria-label="Disminuir cantidad"
-                                            >−</button>
-                                            <input
-                                                type="number"
-                                                min={1}
-                                                max={it.stock}
-                                                value={it.qty}
-                                                onChange={(e) => updateQty(it.id, Number(e.target.value), it.stock)}
-                                                onWheel={(e) => e.target.blur()}
-                                            />
-                                            <button
-                                                onClick={() => updateQty(it.id, it.qty + 1, it.stock)}
-                                                disabled={it.qty >= it.stock}
-                                                aria-label="Aumentar cantidad"
-                                            >+</button>
+                                <div>
+                                    <div className="cart-item__info">
+                                        <strong className="name">{it.name}</strong>
+                                        <div className="qty-line">
+                                            <div className="qty">
+                                                <button
+                                                    onClick={() => updateQty(it.id, it.qty - 1, it.stock)}
+                                                    disabled={it.qty <= 1}
+                                                    aria-label="Disminuir cantidad"
+                                                >−</button>
+                                                <input
+                                                    type="number"
+                                                    min={1}
+                                                    max={it.stock}
+                                                    value={it.qty}
+                                                    onChange={(e) => updateQty(it.id, Number(e.target.value), it.stock)}
+                                                    onWheel={(e) => e.target.blur()}
+                                                />
+                                                <button
+                                                    onClick={() => updateQty(it.id, it.qty + 1, it.stock)}
+                                                    disabled={it.qty >= it.stock}
+                                                    aria-label="Aumentar cantidad"
+                                                >+</button>
+                                            </div>
+                                            <button className="link-danger" onClick={() => removeItem(it.id)}>
+                                                <i className="fa-solid fa-trash"></i>
+                                            </button>
                                         </div>
-                                        <button className="link-danger" onClick={() => removeItem(it.id)}>Quitar</button>
                                     </div>
-                                </div>
 
-                                <div className="cart-item__prices">
-                                    <div className="unit">{currency(it.price)}</div>
-                                    <div className="line">{currency(it.price * it.qty)}</div>
+                                    <div className="cart-item__prices">
+                                        <div className="unit">P.U.:{currency(it.price)}</div>
+                                        <div className="line">{currency(it.price * it.qty)}</div>
+                                    </div>
                                 </div>
                             </div>
                         ))}
                     </div>
 
                     <footer className="cart-popover-footer">
+                        <div className="actions">
+                            <a className="btn" href="/cart" onClick={onClose}>Ver carrito</a>
+                        </div>
+
                         <div className="total-row">
                             <span>Total</span>
                             <strong>{currency(total)}</strong>
-                        </div>
-                        <div className="actions">
-                            <a className="btn" href="/cart" onClick={onClose}>Ver carrito</a>
                         </div>
                     </footer>
                 </>
