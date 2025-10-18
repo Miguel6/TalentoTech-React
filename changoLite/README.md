@@ -1,16 +1,33 @@
-# React + Vite
+# Aura Animal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+E-commerce de **pet shop** para descubrir, comparar y comprar productos para mascotas. Incluye catálogo, detalle de producto y carrito con persistencia, además de flujo de sesión básico (Guest/Admin).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Características
+- **Catálogo de productos** (datos desde MockAPI / fuente simulada).
+- **Detalle de producto** con información y acción de compra.
+- **Carrito de compras**:
+    - Agregar productos
+    - Quitar productos
+    - Actualizar cantidades
+- **Autenticación simple**: inicio/cierre de sesión. Ruta protegida para **Admin**.
+- **Diseño responsive**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧱 Tech Stack
+- **React** + React Router
+- **Context API** para carrito y auth
+- **CSS** para estilos
+- **MockAPI** para datos de ejemplo
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Ejecutar el proyecto
+```bash
+# 1) Instalar dependencias
+npm install
+
+# 2) Iniciar entorno de desarrollo
+npm run dev
