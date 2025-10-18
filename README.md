@@ -24,6 +24,33 @@ E-commerce de **pet shop** para descubrir, comparar y comprar productos para mas
 
 ---
 
+
+## 🔐 Roles y Acceso
+- **Guest**: Navegar, ver productos, usar carrito.
+- **Admin**: Acceso a rutas protegidas de administración
+
+---
+
+## ✅ Estado actual (MVP) / Pre Entrega
+- [x] Listado de productos con datos falsos
+- [x] Detalle de producto
+- [x] Carrito funcional (agregar/quitar/actualizar)
+- [x] Sesión: login/logout (Guest/Admin “mock”)
+- [x] Responsive
+- [x] Persistencia del carrito en localstorage
+- [x] Rutas relativas
+
+---
+
+## 🗺️ Mejoras Futuras / Entrega Final
+- Completar página de **Ofertas**.
+- Completar página de **Administración**.
+- Mejorar el **login** para iniciar sesión con usuario y contraseña.
+- Agregar página de **Registry**.
+- Agregar página de **Contacto**.
+
+---
+
 ## 🚀 Ejecutar el proyecto
 ```bash
 # 1) Instalar dependencias
