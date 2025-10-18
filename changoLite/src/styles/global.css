@@ -67,10 +67,23 @@ body {
     text-decoration: none;
 }
 
-.nav-links a:hover {
+.nav-links a.log-in{
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+}
+
+.nav-links a:not(.log-in):hover {
     color: var(--hover-primary);
 }
 
+.nav-links a.log-in:hover {
+    background: var(--hover-primary);
+}
 
 @media (max-width: 680px) {
     .brand-title {
