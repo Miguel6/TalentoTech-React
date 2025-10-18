@@ -39,7 +39,7 @@ export default function NavBar() {
 
                 {user ? (
                     <>
-                        <span className="nav-user">Hola, {user.name}</span>
+                        <span className="nav-user">Hola, <span className="user-name">{user.name}</span></span>
                         <button className="btn btn-light" onClick={() => {
                             logout();
                             closeAll()

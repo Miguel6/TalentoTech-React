@@ -67,7 +67,7 @@ body {
     text-decoration: none;
 }
 
-.nav-links a.log-in{
+.nav-links a.log-in, .nav-links .btn{
     display: inline-block;
     background: var(--primary);
     color: var(--white);
@@ -75,14 +75,19 @@ body {
     padding: 10px 14px;
     border-radius: 10px;
     border: none;
+    width: auto;
 }
 
 .nav-links a:not(.log-in):hover {
     color: var(--hover-primary);
 }
 
-.nav-links a.log-in:hover {
+.nav-links a.log-in:hover,  .nav-links .btn:hover {
     background: var(--hover-primary);
+}
+
+.nav-user .user-name {
+    color: var(--primary);
 }
 
 @media (max-width: 680px) {
@@ -93,6 +98,10 @@ body {
     .burger {
         display: block;
         width: 13%;
+    }
+
+    .nav-user{
+        color: var(--text);
     }
 
     .nav-links a {
