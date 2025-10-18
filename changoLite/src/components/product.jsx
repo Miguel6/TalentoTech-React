@@ -32,7 +32,7 @@ export default function Product() {
             {items.length === 0 ? (
                 <p>No hay productos para mostrar.</p>
             ) : (
-                <div className="products-grid">{/* ⬅️ antes: grid */}
+                <div className="products-grid">
                     {items.map(p => <ProductCard key={p.id} product={p} />)}
                 </div>
             )}
