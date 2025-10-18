@@ -108,6 +108,7 @@
     grid-template-columns: 68px 1fr auto;
     gap: 10px;
     align-items: center;
+    border-bottom: 1px solid var(--primary);
 }
 
 .cart-item img {
