@@ -1,0 +1,16 @@
+:root {
+    --primary: #00C896;
+    --hover-primary: #00AA96;
+    --delete: #ed5e69;
+    --delete-hover: #e14d45;
+    --text: #2d2d2d;
+    --muted: #6d6d6d;
+    --bg: #f8f8f8;
+    --white: #fff;
+    --light-gray: #6d6d6d;
+
+    --primary-rgb-0-5: rgba(0, 200, 150, 0.5);
+
+    --header-height: 70px;
+    --footer-height: 30px;
+}
