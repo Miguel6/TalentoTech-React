@@ -2,7 +2,7 @@
     width: 90%;
     position: absolute;
     top: var(--header-height);
-    height: calc(100% - var(--header-height) - var(--footer-height) - var(--product-search-input-height));
+    height: calc(100% - var(--header-height) - var(--footer-height) - var(--product-search-input-height) - var(--product-search-pagination-height));
 
     padding: 10px 0;
 }
@@ -12,7 +12,7 @@
     gap: 12px;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     overflow-y: auto;
-    height: calc(100% - var(--header-height) - var(--footer-height) - var(--product-search-input-height));
+    height: calc(100% - var(--header-height) - var(--footer-height) - var(--product-search-input-height) - var(--product-search-pagination-height));
 }
 
 .search-bar {
@@ -29,4 +29,38 @@
     color: var(--primary);
     padding-left: 2em;
     font-weight: bold;
+}
+
+/* Paginación */
+.pagination {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    height: var(--product-search-pagination-height);
+}
+
+.pagination button {
+    background-color: var(--white);
+    border: 1px solid var(--muted);
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 4em;
+    color: var(--primary);
+    height: var(--product-search-pagination-height);
+    font-size: 1.25em;
+}
+
+.pagination button:hover {
+    background-color: var(--hover-primary);
+    color: var(--white)
+}
+
+.pagination button.active {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
 }
