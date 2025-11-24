@@ -1,7 +1,8 @@
 .products-container {
+    width: 90%;
     position: absolute;
     top: var(--header-height);
-    height: calc(100% - var(--header-height) - var(--footer-height));
+    height: calc(100% - var(--header-height) - var(--footer-height) - var(--product-search-input-height));
 
     padding: 10px 0;
 }
@@ -11,5 +12,21 @@
     gap: 12px;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     overflow-y: auto;
-    height: calc(100% - 132px);
+    height: calc(100% - var(--header-height) - var(--footer-height) - var(--product-search-input-height));
+}
+
+.search-bar {
+    margin-bottom: 1em;
+}
+
+.search-bar input {
+    width: 100%;
+    border: 0.3em solid var(--primary);
+    height: 3em;
+    border-radius: 2em;
+    font-size: 1.75rem;
+    background-color: var(--white);
+    color: var(--primary);
+    padding-left: 2em;
+    font-weight: bold;
 }
