@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams, useLocation } from 'react-router-dom'
 import { getProducts, updateProduct } from './../../services/products.js'
+import { useProducts } from '../../context/product-context.jsx'
 import './../../styles/admin.css'
 
 export default function AdminEditProduct() {
     const navigate = useNavigate()
     const { id } = useParams()
     const location = useLocation()
+    const { updateProductLocal } = useProducts()
+
     const [form, setForm] = useState({
         name: '',
         price: '',
@@ -16,9 +19,10 @@ export default function AdminEditProduct() {
         stock: '',
         urlImage: ''
     })
-    const [error, setError] = useState('')
+    const [errors, setErrors] = useState({})
     const [message, setMessage] = useState('')
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
 
     useEffect(() => {
         const loadProduct = async () => {
@@ -42,55 +46,64 @@ export default function AdminEditProduct() {
     }, [id, location.state])
 
     const validateForm = () => {
-        if (!form.name.trim()) return 'El nombre es obligatorio.'
-        if (Number(form.price) <= 0) return 'El precio debe ser mayor a 0.'
-        if (form.description.trim().length < 10) return 'La descripción debe tener al menos 10 caracteres.'
-        return ''
+        const newErrors = {}
+        if (!form.name) newErrors.name = 'El nombre es obligatorio.'
+        if (form.price <= 0) newErrors.price = 'El precio debe ser mayor a 0.'
+        if (!form.description || form.description.length < 10)
+            newErrors.description = 'La descripción debe tener al menos 10 caracteres.'
+        return newErrors
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const validationError = validateForm()
-        if (validationError) return setError(validationError)
+        const validations = validateForm()
+        if (Object.keys(validations).length > 0) {
+            setErrors(validations)
+            return
+        }
 
-        setError('')
+        setErrors({})
         setLoading(true)
         try {
-            await updateProduct(id, form)
+            // await updateProduct(id, form)
+            updateProductLocal({ ...form, id })
             setMessage('✅ Producto actualizado correctamente')
             setTimeout(() => navigate('/admin/products'), 1200)
         } catch {
-            setError('❌ Error al actualizar el producto. Intenta nuevamente.')
+            updateProductLocal({ ...form, id })
+            setError('⚠️ Producto actualizado localmente (sin conexión a MockAPI)')
         } finally {
             setLoading(false)
         }
     }
 
     if (loading) return <p>Cargando producto...</p>
-    if (error) return <p className="error">{error}</p>
+    if (error && !message) return <p className="error">{error}</p>
 
     return (
         <section className="admin-container">
             <h1>Editar Producto</h1>
-
             {message && <p className="success">{message}</p>}
+            <form className="edit-product-form" onSubmit={handleSubmit}>
+                <div className={`form-group ${errors.name ? 'has-error' : ''}`}>
+                    <input
+                        type="text"
+                        placeholder="Nombre del producto"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    />
+                    {errors.name && <p className="input-error">{errors.name}</p>}
+                </div>
 
-            <form className="admin-form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Nombre del producto"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    required
-                />
-
-                <input
-                    type="number"
-                    placeholder="Precio"
-                    value={form.price}
-                    onChange={(e) => setForm({ ...form, price: e.target.value })}
-                    required
-                />
+                <div className={`form-group ${errors.price ? 'has-error' : ''}`}>
+                    <input
+                        type="number"
+                        placeholder="Precio"
+                        value={form.price}
+                        onChange={(e) => setForm({ ...form, price: e.target.value })}
+                    />
+                    {errors.price && <p className="input-error">{errors.price}</p>}
+                </div>
 
                 <input
                     type="text"
@@ -120,18 +133,24 @@ export default function AdminEditProduct() {
                     onChange={(e) => setForm({ ...form, urlImage: e.target.value })}
                 />
 
-                <textarea
-                    placeholder="Descripción (mínimo 10 caracteres)"
-                    value={form.description}
-                    onChange={(e) => setForm({ ...form, description: e.target.value })}
-                    required
-                />
+                <div className={`form-group ${errors.description ? 'has-error' : ''}`}>
+                    <textarea
+                        placeholder="Descripción (mínimo 10 caracteres)"
+                        value={form.description}
+                        onChange={(e) => setForm({ ...form, description: e.target.value })}
+                    />
+                    {errors.description && <p className="input-error">{errors.description}</p>}
+                </div>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <button type="button" className="cancel" onClick={() => navigate('/admin/products')}>
+                    <button
+                        type="button"
+                        className="secondary-button"
+                        onClick={() => navigate('/admin/products')}
+                    >
                         ← Volver
                     </button>
-                    <button type="submit" className="btn-primary" disabled={loading}>
+                    <button type="submit" className="btn btn-light" disabled={loading}>
                         {loading ? 'Guardando...' : 'Actualizar producto'}
                     </button>
                 </div>

@@ -5,6 +5,7 @@ import ProductCard from './productCard.jsx'
 import './../styles/product.css'
 import './../styles/admin.css'
 import { FaPlus } from "react-icons/fa6"
+import {ToastContainer, toast, Bounce} from 'react-toastify';
 
 export default function ProductList({ showAdminControls = false }) {
     const { products, loading, error, deleteProductLocal } = useProducts()
@@ -37,10 +38,25 @@ export default function ProductList({ showAdminControls = false }) {
         if (!modalDelete) return
         deleteProductLocal(modalDelete.id)
         setModalDelete(null)
+        showSuccessDeleteProductToaster();
     }
 
     const handleEdit = (product) => {
         navigate(`/admin/products/edit/${product.id}`, { state: { product } })
+    }
+
+    const showSuccessDeleteProductToaster = () => {
+        toast.success('Producto eliminado exitosamente', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Bounce,
+        });
     }
 
     if (loading) return <p>Cargando productos…</p>

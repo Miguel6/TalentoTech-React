@@ -13,6 +13,22 @@
     background: var(--hover-primary);
 }
 
+.secondary-button {
+    display: inline-block;
+    background: var(--white);
+    color: var(--text);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-top: 8px;
+    border: none;
+}
+
+.secondary-button:hover {
+    background: var(--text);
+    color: var(--white);
+}
+
 .cart-btn {
     padding: 8px 10px;
     margin: 0;

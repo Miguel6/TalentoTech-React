@@ -33,7 +33,7 @@ section.admin .admin-card:hover {
     color: var(--white);
 }
 
-section.admin .admin-card svg{
+section.admin .admin-card svg {
     height: 3em;
     width: 3em;
 }
@@ -107,7 +107,7 @@ section.admin .admin-card svg{
     background: var(--delete-hover);
 }
 
-.cancel:hover{
+.cancel:hover {
     background: var(--muted);
     color: var(--white);
 }
@@ -116,3 +116,54 @@ section.admin .admin-card svg{
     min-height: 100px;
     resize: vertical;
 }
+
+.edit-product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.edit-product-form input {
+    background-color: var(--white);
+    height: 3em;
+    color: var(--text);
+    padding-left: 1em;
+}
+
+.edit-product-form textarea {
+    background-color: var(--white);
+    height: 6em;
+    color: var(--text);
+    padding-left: 1em;
+}
+
+/*Edit product*/
+.input-error {
+    color: var(--delete);
+    font-size: 0.9rem;
+    padding-left: 4px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.has-error input,
+.has-error textarea {
+    border: 1.5px solid var(--delete) !important;
+    background-color: #fff5f5;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

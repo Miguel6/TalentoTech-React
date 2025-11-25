@@ -8,6 +8,8 @@ import {BrowserRouter} from 'react-router-dom'
 import {CartProvider} from './context/cart-context.jsx'
 import {AuthProvider} from './context/auth-context.jsx'
 import {ProductProvider} from "./context/product-context.jsx";
+import {Bounce, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -19,6 +21,17 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                     </CartProvider>
                 </ProductProvider>
             </AuthProvider>
+            <ToastContainer
+                position="bottom-center"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                pauseOnHover
+                draggable
+                theme="colored"
+                transition={Bounce}
+            />
         </BrowserRouter>
     </React.StrictMode>
 )
