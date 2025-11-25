@@ -1,49 +1,27 @@
-import React, {useEffect, useState} from 'react'
-import {useNavigate} from 'react-router-dom'
-import {deleteProduct, getProducts} from '../services/products.js'
+import React, { useState, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useProducts } from '../context/product-context.jsx'
 import ProductCard from './productCard.jsx'
 import './../styles/product.css'
 import './../styles/admin.css'
-import {FaPlus} from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6"
 
-export default function ProductList({showAdminControls = false}) {
-    const [items, setItems] = useState([])
-    const [filteredItems, setFilteredItems] = useState([])
+export default function ProductList({ showAdminControls = false }) {
+    const { products, loading, error, deleteProductLocal } = useProducts()
     const [search, setSearch] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [itemsPerPage] = useState(33)
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
     const [modalDelete, setModalDelete] = useState(null)
     const navigate = useNavigate()
 
-    useEffect(() => {
-        const load = async () => {
-            try {
-                setLoading(true)
-                const data = await getProducts()
-                const valid = Array.isArray(data) ? data : []
-                setItems(valid)
-                setFilteredItems(valid)
-            } catch (e) {
-                setError(e.message || 'Error al cargar productos')
-            } finally {
-                setLoading(false)
-            }
-        }
-        load()
-    }, [])
-
-    useEffect(() => {
+    const filteredItems = useMemo(() => {
         const lower = search.toLowerCase()
-        const filtered = items.filter(p =>
+        return products.filter(p =>
             p.name.toLowerCase().includes(lower) ||
             p.category.toLowerCase().includes(lower) ||
             p.brand.toLowerCase().includes(lower)
         )
-        setFilteredItems(filtered)
-        setCurrentPage(1)
-    }, [search, items])
+    }, [search, products])
 
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
@@ -52,26 +30,21 @@ export default function ProductList({showAdminControls = false}) {
 
     const handlePageChange = (page) => {
         setCurrentPage(page)
-        window.scrollTo({top: 0, behavior: 'smooth'})
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
-    const handleDelete = async () => {
+    const handleDelete = () => {
         if (!modalDelete) return
-        try {
-            await deleteProduct(modalDelete.id)
-            setItems(items.filter(p => p.id !== modalDelete.id))
-            setModalDelete(null)
-        } catch {
-            alert('No se pudo eliminar el producto.')
-        }
+        deleteProductLocal(modalDelete.id)
+        setModalDelete(null)
     }
 
     const handleEdit = (product) => {
-        navigate(`/admin/products/edit/${product.id}`, {state: {product}})
+        navigate(`/admin/products/edit/${product.id}`, { state: { product } })
     }
 
     if (loading) return <p>Cargando productos…</p>
-    if (error) return <p style={{color: 'crimson'}}>Ups: {error}</p>
+    if (error) return <p style={{ color: 'crimson' }}>Ups: {error}</p>
 
     return (
         <section className={showAdminControls ? 'admin-container' : 'products-container'}>
@@ -85,12 +58,14 @@ export default function ProductList({showAdminControls = false}) {
                     onChange={(e) => setSearch(e.target.value)}
                 />
                 {showAdminControls && (
-                    <button onClick={() => navigate('/admin/products/new')} className="btn-primary">
-                        <FaPlus/> Agregar producto
+                    <button
+                        onClick={() => navigate('/admin/products/new')}
+                        className="btn-primary"
+                    >
+                        <FaPlus /> Agregar producto
                     </button>
                 )}
             </div>
-
 
             {currentItems.length === 0 ? (
                 <p>No hay productos para mostrar.</p>
