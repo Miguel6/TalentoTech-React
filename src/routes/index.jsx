@@ -41,12 +41,31 @@ export default function AppRoutes() {
                 <RequireRole role="admin">
                     <Admin />
                 </RequireRole>
-            ),
-            children: [
-                { path: ROUTES.adminProducts, element: <AdminProducts /> },
-                { path: ROUTES.adminAddProduct, element: <AdminAddProduct /> },
-                { path: ROUTES.adminEditProduct(), element: <AdminEditProduct /> },
-            ]
+            )
+        },
+        {
+            path: ROUTES.adminProducts,
+            element: (
+                <RequireRole role="admin">
+                    <AdminProducts />
+                </RequireRole>
+            )
+        },
+        {
+            path: ROUTES.adminAddProduct,
+            element: (
+                <RequireRole role="admin">
+                    <AdminAddProduct />
+                </RequireRole>
+            )
+        },
+        {
+            path: ROUTES.adminEditProduct(),
+            element: (
+                <RequireRole role="admin">
+                    <AdminEditProduct />
+                </RequireRole>
+            )
         },
 
         { path: ROUTES.forbidden, element: <Forbidden /> },

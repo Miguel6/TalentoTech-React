@@ -1,3 +1,48 @@
+section.admin {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+section.admin .admin-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+section.admin .admin-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 180px;
+    height: 120px;
+    text-decoration: none;
+    background-color: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.admin-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-color: #007bff;
+}
+
+.admin-card.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+/**/
 .admin-container {
     max-width: 1000px;
     margin: auto;

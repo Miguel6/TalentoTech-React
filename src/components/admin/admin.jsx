@@ -1,14 +1,31 @@
 import React from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, NavLink } from 'react-router-dom'
+import { ROUTES } from "../../routes/paths.js"
 
 export default function Admin() {
     return (
-        <section style={{ padding: '20px' }}>
+        <section className="admin">
             <h1>Panel Admin</h1>
-            <nav style={{ marginBottom: '20px' }}>
-                <Link to="/admin/products">🛒 Productos</Link>
+
+            <nav className="admin-nav">
+                <NavLink
+                    to={ROUTES.adminProducts}
+                    className={({ isActive }) => `admin-card ${isActive ? 'active' : ''}`}>
+                    🛒 Productos
+                </NavLink>
+
+                <NavLink
+                    to="users"
+                    className={({ isActive }) => `admin-card ${isActive ? 'active' : ''}`}>
+                    👤 Usuarios
+                </NavLink>
+
+                <NavLink
+                    to="reports"
+                    className={({ isActive }) => `admin-card ${isActive ? 'active' : ''}`}>
+                    📊 Reportes
+                </NavLink>
             </nav>
-            <Outlet />
         </section>
     )
 }

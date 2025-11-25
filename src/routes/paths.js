@@ -10,9 +10,9 @@ export const ROUTES = {
     login: '/login',
     checkout: '/checkout',
     admin: '/admin',
-    adminProducts: 'products',
-    adminAddProduct: 'products/new',
-    adminEditProduct: (id = ':id') => `products/edit/:id`
+    adminProducts: '/admin/products',
+    adminAddProduct: '/admin/products/new',
+    adminEditProduct: (id = ':id') => `/admin/products/edit/:id`
 };
 
 export const ALL_PUBLIC_ROUTES = [
