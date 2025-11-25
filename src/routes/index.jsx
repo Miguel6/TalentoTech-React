@@ -43,13 +43,13 @@ export default function AppRoutes() {
                 </RequireRole>
             ),
             children: [
-                { path: 'products', element: <AdminProducts /> },
-                { path: 'products/new', element: <AdminAddProduct /> },
-                { path: 'products/edit/:id', element: <AdminEditProduct /> },
+                { path: ROUTES.adminProducts, element: <AdminProducts /> },
+                { path: ROUTES.adminAddProduct, element: <AdminAddProduct /> },
+                { path: ROUTES.adminEditProduct(), element: <AdminEditProduct /> },
             ]
         },
 
-        { path: '/forbidden', element: <Forbidden /> },
+        { path: ROUTES.forbidden, element: <Forbidden /> },
         { path: '/home', element: <Navigate to={ROUTES.home} replace /> },
         { path: '*', element: <NotFound /> },
     ])
