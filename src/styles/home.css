@@ -5,11 +5,13 @@
 .container {
     max-width: 100%;
     margin: 0 auto;
-    padding: 24px 16px;
+    padding: 1em;
     align-items: center;
     justify-content: center;
     display: flex;
-    height: calc(100% - var(--footer-height));
+    position: relative;
+    top: var(--header-height);
+    height: calc(100% - var(--footer-height) - var(--header-height));
 }
 
 .main-content {
