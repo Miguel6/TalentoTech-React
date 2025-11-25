@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './../styles/product.css'
 import './../styles/product-card.css'
 import { useCart } from '../context/cart-context.jsx'
+import { FaPen, FaTrash } from "react-icons/fa";  // FontAwesome
 
 export default function ProductCard({ product, isAdmin = false, onEdit, onDelete }) {
     const navigate = useNavigate()
@@ -47,14 +48,13 @@ export default function ProductCard({ product, isAdmin = false, onEdit, onDelete
 
             {isAdmin && (
                 <div className="admin-actions">
-                    <button
-                        className="btn-edit"
+                    <button className="btn-edit"
                         onClick={(e) => {
                             e.stopPropagation()
                             onEdit && onEdit(product)
                         }}
                     >
-                        ✏️ Editar
+                        <FaPen/>️ Editar
                     </button>
 
                     <button
@@ -64,7 +64,7 @@ export default function ProductCard({ product, isAdmin = false, onEdit, onDelete
                             onDelete && onDelete(product)
                         }}
                     >
-                        🗑️ Eliminar
+                        <FaTrash/>Eliminar
                     </button>
                 </div>
             )}

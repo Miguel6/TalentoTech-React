@@ -13,11 +13,6 @@
     height: max-content;
 }
 
-.product-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
-}
-
 .product-card .media {
     background: #f6f6f6;
     display: grid;
@@ -55,4 +50,41 @@ button {
     width: 90%;
     margin: 10px 4px;
     align-self: center;
+}
+
+.admin-actions {
+    padding: 0 1rem;
+}
+
+.btn-edit {
+    margin: 0 0 0.5rem 0;
+    background-color: var(--primary);
+    transition: all 0.25s ease;
+}
+
+.btn-delete {
+    margin: 0 0 0.5rem 0;
+    background-color: var(--delete);
+    transition: all 0.25s ease;
+}
+
+.btn-edit:hover {
+    background-color: var(--hover-primary);
+}
+
+.btn-delete:hover {
+    background-color: var(--delete-hover);
+}
+
+.btn-delete, .btn-edit {
+    width: 100%;
+    padding: 0;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-delete svg, .btn-edit svg {
+    margin-right: 0.5rem;
 }

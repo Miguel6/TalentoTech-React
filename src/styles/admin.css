@@ -33,6 +33,11 @@ section.admin .admin-card:hover {
     color: var(--white);
 }
 
+section.admin .admin-card svg{
+    height: 3em;
+    width: 3em;
+}
+
 /**/
 .admin-container {
     width: 100%;
