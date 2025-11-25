@@ -12,23 +12,63 @@
     gap: 12px;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     overflow-y: auto;
-    height: calc(100% - var(--header-height) - var(--footer-height) - var(--product-search-input-height) - var(--product-search-pagination-height));
+    /*height: calc(100% - var(--header-height) - var(--footer-height) - var(--product-search-input-height) - var(--product-search-pagination-height));*/
+    height: 85%;
 }
 
 .search-bar {
     margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .search-bar input {
     width: 100%;
-    border: 0.3em solid var(--primary);
-    height: 3em;
+    border: 0.2em solid var(--primary);
+    height: 4rem;
     border-radius: 2em;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     background-color: var(--white);
     color: var(--primary);
     padding-left: 2em;
-    font-weight: bold;
+    flex: 4;
+    font-style: italic;
+}
+
+.search-bar button {
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 2em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    flex: 1;
+    margin: 0 0 0 1em;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar button svg {
+    margin-right: 10px;
+}
+
+.search-bar button:hover {
+    background-color: var(--hover-primary);
+}
+
+@media (max-width: 500px) {
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar input,
+    .search-bar button {
+        width: 100%;
+    }
 }
 
 /* Paginación */

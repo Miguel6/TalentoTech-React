@@ -36,8 +36,7 @@ section.admin .admin-card:hover {
 /**/
 .admin-container {
     width: 100%;
-    height: calc(100% - var(--header-height) - var(--footer-height) - var(--product-search-input-height) - var(--product-search-pagination-height));
-
+    position: absolute;
 }
 
 .btn-primary {

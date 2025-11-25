@@ -1,7 +1,7 @@
 import React from 'react'
-import { Outlet, NavLink } from 'react-router-dom'
-import { ROUTES } from "../../routes/paths.js"
-import { FaBoxOpen, FaUserShield, FaChartBar } from "react-icons/fa"
+import {NavLink} from 'react-router-dom'
+import {ROUTES} from "../../routes/paths.js"
+import {FaBoxOpen, FaChartBar, FaUserShield} from "react-icons/fa"
 
 export default function Admin() {
     return (
@@ -11,22 +11,22 @@ export default function Admin() {
             <nav className="admin-nav">
                 <NavLink
                     to={ROUTES.adminProducts}
-                    className={({ isActive }) => `admin-card ${isActive ? 'active' : ''}`}>
-                    <FaBoxOpen size={28} style={{ marginBottom: '8px' }} />
+                    className={({isActive}) => `admin-card ${isActive ? 'active' : ''}`}>
+                    <FaBoxOpen/>
                     Productos
                 </NavLink>
 
                 <NavLink
                     to="users"
-                    className={({ isActive }) => `admin-card ${isActive ? 'active' : ''}`}>
-                    <FaUserShield size={28} style={{ marginBottom: '8px' }} />
+                    className={({isActive}) => `admin-card ${isActive ? 'active' : ''}`}>
+                    <FaUserShield/>
                     Usuarios
                 </NavLink>
 
                 <NavLink
                     to="reports"
-                    className={({ isActive }) => `admin-card ${isActive ? 'active' : ''}`}>
-                    <FaChartBar size={28} style={{ marginBottom: '8px' }} />
+                    className={({isActive}) => `admin-card ${isActive ? 'active' : ''}`}>
+                    <FaChartBar/>
                     Reportes
                 </NavLink>
             </nav>

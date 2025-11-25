@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { getProducts, deleteProduct } from '../services/products.js'
+import React, {useEffect, useState} from 'react'
+import {useNavigate} from 'react-router-dom'
+import {deleteProduct, getProducts} from '../services/products.js'
 import ProductCard from './productCard.jsx'
 import './../styles/product.css'
 import './../styles/admin.css'
+import {FaPlus} from "react-icons/fa6";
 
-export default function ProductList({ showAdminControls = false }) {
+export default function ProductList({showAdminControls = false}) {
     const [items, setItems] = useState([])
     const [filteredItems, setFilteredItems] = useState([])
     const [search, setSearch] = useState("")
@@ -51,7 +52,7 @@ export default function ProductList({ showAdminControls = false }) {
 
     const handlePageChange = (page) => {
         setCurrentPage(page)
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        window.scrollTo({top: 0, behavior: 'smooth'})
     }
 
     const handleDelete = async () => {
@@ -66,11 +67,11 @@ export default function ProductList({ showAdminControls = false }) {
     }
 
     const handleEdit = (product) => {
-        navigate(`/admin/products/edit/${product.id}`, { state: { product } })
+        navigate(`/admin/products/edit/${product.id}`, {state: {product}})
     }
 
     if (loading) return <p>Cargando productos…</p>
-    if (error) return <p style={{ color: 'crimson' }}>Ups: {error}</p>
+    if (error) return <p style={{color: 'crimson'}}>Ups: {error}</p>
 
     return (
         <section className={showAdminControls ? 'admin-container' : 'products-container'}>
@@ -83,15 +84,13 @@ export default function ProductList({ showAdminControls = false }) {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
+                {showAdminControls && (
+                    <button onClick={() => navigate('/admin/products/new')} className="btn-primary">
+                        <FaPlus/> Agregar producto
+                    </button>
+                )}
             </div>
 
-            {showAdminControls && (
-                <div style={{ textAlign: 'right', marginBottom: '10px' }}>
-                    <button onClick={() => navigate('/admin/products/new')} className="btn-primary">
-                        ➕ Agregar producto
-                    </button>
-                </div>
-            )}
 
             {currentItems.length === 0 ? (
                 <p>No hay productos para mostrar.</p>

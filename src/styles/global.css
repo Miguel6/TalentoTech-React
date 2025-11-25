@@ -3,6 +3,10 @@
     box-sizing: border-box
 }
 
+h1, h2, h3, h4, h5 {
+    margin: 0 0 10px 0;
+}
+
 html, body, #root {
     height: 100%;
     width: 100%;
@@ -67,7 +71,7 @@ body {
     text-decoration: none;
 }
 
-.nav-links a.log-in, .nav-links .btn{
+.nav-links a.log-in, .nav-links .btn {
     display: inline-block;
     background: var(--primary);
     color: var(--white);
@@ -82,7 +86,7 @@ body {
     color: var(--hover-primary);
 }
 
-.nav-links a.log-in:hover,  .nav-links .btn:hover {
+.nav-links a.log-in:hover, .nav-links .btn:hover {
     background: var(--hover-primary);
 }
 
@@ -100,13 +104,14 @@ body {
         width: 13%;
     }
 
-    .nav-user{
+    .nav-user {
         color: var(--text);
     }
 
     .nav-links a {
         color: var(--primary);
     }
+
     .nav-links {
         position: absolute;
         top: 56px;
