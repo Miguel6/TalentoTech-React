@@ -117,27 +117,27 @@ section.admin .admin-card svg {
     resize: vertical;
 }
 
-.edit-product-form {
+/*Edit product*/
+.edit-product-form, .admin-product-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.edit-product-form input {
+.edit-product-form input, .admin-product-form input {
     background-color: var(--white);
     height: 3em;
     color: var(--text);
     padding-left: 1em;
 }
 
-.edit-product-form textarea {
+.edit-product-form textarea, .admin-product-form textarea {
     background-color: var(--white);
     height: 6em;
     color: var(--text);
     padding-left: 1em;
 }
 
-/*Edit product*/
 .input-error {
     color: var(--delete);
     font-size: 0.9rem;

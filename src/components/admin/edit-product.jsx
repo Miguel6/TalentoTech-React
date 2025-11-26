@@ -43,32 +43,17 @@ export default function AdminEditProduct() {
         loadProduct()
     }, [id, location.state])
 
-    const showSuccess = (message) => {
-        toast.success(message, {
-            position: "bottom-center",
-            autoClose: 5000,
+    const showToast = (message, type = 'success') => {
+        const fn = type === 'error' ? toast.error : toast.success
+        fn(message, {
+            position: 'bottom-center',
+            autoClose: 4000,
             hideProgressBar: false,
-            closeOnClick: false,
             pauseOnHover: true,
             draggable: true,
-            progress: undefined,
-            theme: "colored",
+            theme: 'colored',
             transition: Bounce,
-        });
-    }
-
-    const showError = (message) => {
-        toast.error(message, {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            transition: Bounce,
-        });
+        })
     }
 
     const validateForm = () => {
@@ -98,10 +83,10 @@ export default function AdminEditProduct() {
         setLoading(true)
         try {
             updateProductLocal({...form, id})
-            showSuccess('Producto actualizado exitosamente');
+            showToast('Producto actualizado exitosamente');
             setTimeout(() => navigate('/admin/products'), 1200)
         } catch {
-            showError('Ocurrio un error al actualizar el producto')
+            showToast('Ocurrio un error al actualizar el producto', 'error')
         } finally {
             setLoading(false)
         }
