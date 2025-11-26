@@ -1,8 +1,8 @@
 import React from 'react'
-import NavBar from './components/NavBar.jsx'
 import Footer from './components/footer';
 import AppRoutes from "./routes/index.jsx";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import NavBar from "./components/nav-bar.jsx";
 
 export default function App() {
     return (

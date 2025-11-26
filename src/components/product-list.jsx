@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useProducts} from '../context/product-context.jsx'
-import ProductCard from './productCard.jsx'
+import ProductCard from './product-card.jsx'
 import './../styles/product.css'
 import './../styles/admin.css'
 import {FaPlus} from "react-icons/fa6"
