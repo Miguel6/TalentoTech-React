@@ -1,14 +1,14 @@
-import React, { useState, useMemo } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useProducts } from '../context/product-context.jsx'
+import React, {useEffect, useMemo, useState} from 'react'
+import {useNavigate} from 'react-router-dom'
+import {useProducts} from '../context/product-context.jsx'
 import ProductCard from './productCard.jsx'
 import './../styles/product.css'
 import './../styles/admin.css'
-import { FaPlus } from "react-icons/fa6"
-import {ToastContainer, toast, Bounce} from 'react-toastify';
+import {FaPlus} from "react-icons/fa6"
+import {Bounce, toast} from 'react-toastify';
 
-export default function ProductList({ showAdminControls = false }) {
-    const { products, loading, error, deleteProductLocal } = useProducts()
+export default function ProductList({showAdminControls = false}) {
+    const {products, loading, error, deleteProductLocal, lastUpdate} = useProducts()
     const [search, setSearch] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [itemsPerPage] = useState(33)
@@ -29,9 +29,13 @@ export default function ProductList({ showAdminControls = false }) {
     const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem)
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage)
 
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [lastUpdate])
+
     const handlePageChange = (page) => {
         setCurrentPage(page)
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        window.scrollTo({top: 0, behavior: 'smooth'})
     }
 
     const handleDelete = () => {
@@ -42,7 +46,7 @@ export default function ProductList({ showAdminControls = false }) {
     }
 
     const handleEdit = (product) => {
-        navigate(`/admin/products/edit/${product.id}`, { state: { product } })
+        navigate(`/admin/products/edit/${product.id}`, {state: {product}})
     }
 
     const showSuccessDeleteProductToaster = () => {
@@ -60,7 +64,7 @@ export default function ProductList({ showAdminControls = false }) {
     }
 
     if (loading) return <p>Cargando productos…</p>
-    if (error) return <p style={{ color: 'crimson' }}>Ups: {error}</p>
+    if (error) return <p style={{color: 'crimson'}}>Ups: {error}</p>
 
     return (
         <section className={showAdminControls ? 'admin-container' : 'products-container'}>
@@ -78,7 +82,7 @@ export default function ProductList({ showAdminControls = false }) {
                         onClick={() => navigate('/admin/products/new')}
                         className="btn-primary"
                     >
-                        <FaPlus /> Agregar producto
+                        <FaPlus/> Agregar producto
                     </button>
                 )}
             </div>

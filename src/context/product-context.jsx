@@ -1,43 +1,39 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { getProducts } from "../services/products.js";
+import React, { createContext, useContext, useState, useEffect } from 'react'
+import { getProducts } from '../services/products.js'
 
-const ProductContext = createContext();
+const ProductContext = createContext()
 
-export const useProducts = () => useContext(ProductContext);
-
-export function ProductProvider({ children }) {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+export const ProductProvider = ({ children }) => {
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
-        const load = async () => {
+        const loadProducts = async () => {
             try {
-                const data = await getProducts();
-                setProducts(Array.isArray(data) ? data : []);
-            } catch (err) {
-                setError(err.message || "Error al cargar productos");
+                setLoading(true)
+                const data = await getProducts()
+                setProducts(Array.isArray(data) ? data : [])
+            } catch (e) {
+                setError(e.message)
             } finally {
-                setLoading(false);
+                setLoading(false)
             }
-        };
-        load();
-    }, []);
+        }
+        loadProducts()
+    }, [])
 
     const deleteProductLocal = (id) => {
-        setProducts((prev) => prev.filter((p) => p.id !== id));
-    };
+        setProducts(prev => [...prev.filter(p => p.id !== id)])
+    }
 
-    const updateProductLocal = (updatedProduct) => {
-        setProducts((prev) =>
-            prev.map((p) => (p.id === updatedProduct.id ? updatedProduct : p))
-        );
-    };
+    const updateProductLocal = (updated) => {
+        setProducts(prev => [...prev.map(p => (String(p.id) === String(updated.id) ? updated : p))])
+    }
 
     const addProductLocal = (newProduct) => {
-        const fakeId = Date.now().toString();
-        setProducts((prev) => [...prev, { ...newProduct, id: fakeId }]);
-    };
+        setProducts(prev => [...prev, newProduct])
+    }
 
     return (
         <ProductContext.Provider
@@ -52,5 +48,7 @@ export function ProductProvider({ children }) {
         >
             {children}
         </ProductContext.Provider>
-    );
+    )
 }
+
+export const useProducts = () => useContext(ProductContext)
