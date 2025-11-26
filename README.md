@@ -69,3 +69,12 @@ npm install
 
 # 2) Iniciar entorno de desarrollo
 npm run dev
+
+# 3) Iniciar sesión 
+ADMIN:
+  Usuario: admin
+  Contraseña: admin123
+
+USUARIO NORMAL:
+  Usuario: usuario
+  Contraseña: user123
