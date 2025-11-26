@@ -17,14 +17,14 @@ export default function Admin() {
                 </NavLink>
 
                 <NavLink
-                    to="users"
+                    to={ROUTES.adminUsers}
                     className={({isActive}) => `admin-card ${isActive ? 'active' : ''}`}>
                     <FaUserShield/>
                     Usuarios
                 </NavLink>
 
                 <NavLink
-                    to="reports"
+                    to={ROUTES.adminReports}
                     className={({isActive}) => `admin-card ${isActive ? 'active' : ''}`}>
                     <FaChartBar/>
                     Reportes

@@ -15,6 +15,8 @@ import { RequireAuth, RequireGuest, RequireRole } from './guards.jsx'
 import AdminProducts from "../components/admin/products";
 import AdminAddProduct from "../components/admin/add-product";
 import AdminEditProduct from "../components/admin/edit-product.jsx";
+import AdminReports from "../components/admin/admin-reports";
+import AdminUsers from "../components/admin/admin-users.jsx";
 
 function NotFound() { return <h2>Página no encontrada</h2> }
 
@@ -64,6 +66,22 @@ export default function AppRoutes() {
             element: (
                 <RequireRole role="admin">
                     <AdminEditProduct />
+                </RequireRole>
+            )
+        },
+        {
+            path: ROUTES.adminUsers,
+            element: (
+                <RequireRole role="admin">
+                    <AdminUsers />
+                </RequireRole>
+            )
+        },
+        {
+            path: ROUTES.adminReports,
+            element: (
+                <RequireRole role="admin">
+                    <AdminReports />
                 </RequireRole>
             )
         },

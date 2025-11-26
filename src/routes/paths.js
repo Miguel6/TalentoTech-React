@@ -12,7 +12,9 @@ export const ROUTES = {
     admin: '/admin',
     adminProducts: '/admin/products',
     adminAddProduct: '/admin/products/new',
-    adminEditProduct: (id = ':id') => `/admin/products/edit/:id`
+    adminEditProduct: (id = ':id') => `/admin/products/edit/:id`,
+    adminUsers: '/admin/users',
+    adminReports: '/admin/reports',
 };
 
 export const ALL_PUBLIC_ROUTES = [
