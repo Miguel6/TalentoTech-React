@@ -1,4 +1,4 @@
-footer {
+.main-page-footer {
     color: var(--white);
     height: var(--footer-height);
     display: flex;

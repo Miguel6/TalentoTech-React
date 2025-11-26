@@ -4,7 +4,7 @@ import './../styles/footer.css'
 
 export default function Footer() {
     return (
-        <footer>
+        <footer className="main-page-footer">
             <span>&copy; {APP.YEAR} - {APP.FOOTER_DESCRIPTION}</span>
         </footer>
     )

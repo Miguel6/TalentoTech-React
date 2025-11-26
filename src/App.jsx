@@ -14,7 +14,7 @@ export default function App() {
             <main className="container">
                 <AppRoutes />
             </main>
-            <Footer />
+            <Footer/>
         </>
     )
 }
