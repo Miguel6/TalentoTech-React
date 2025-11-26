@@ -31,7 +31,7 @@ E-commerce de **pet shop** para descubrir, comparar y comprar productos para mas
 
 ---
 
-## ✅ Estado actual (MVP) / Pre Entrega
+## ✅ Primer entrega: (MVP) / Pre Entrega
 - [x] Listado de productos con datos falsos
 - [x] Detalle de producto
 - [x] Carrito funcional (agregar/quitar/actualizar)
@@ -41,13 +41,24 @@ E-commerce de **pet shop** para descubrir, comparar y comprar productos para mas
 - [x] Rutas relativas
 
 ---
+## ✅ Entrega Final:
+- [x] Página **Administración** funcional
+- [x] Página de **Login** funcionando con Usuario y Contraseña
+- [x] Página de **Administracion de Usuarios** para visualizar usuarios actuales
+- [x] Manejo de toaster y errores
+- [x] Barra de búsqueda en **Productos** y **Edición de Productos**
+- [x] Se agrega React Icons
+- [x] Edición de productos
+- [x] Eliminar  productos
+- [x] Agregar productos
 
+
+---
 ## 🗺️ Mejoras Futuras / Entrega Final
-- Completar página de **Ofertas**.
-- Completar página de **Administración**.
-- Mejorar el **login** para iniciar sesión con usuario y contraseña.
 - Agregar página de **Registry**.
 - Agregar página de **Contacto**.
+- Agregar página de **Ofertas**.
+- Agregar página de **Administracion de Reportes**.
 
 ---
 
