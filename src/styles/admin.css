@@ -44,20 +44,6 @@ section.admin .admin-card svg {
     height: 100%;
 }
 
-.btn-primary {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -167,3 +153,78 @@ section.admin .admin-card svg {
     }
 }
 
+
+/* ADMIN USUARIOS*/
+/* Contenedor general de cards */
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.user-card {
+    background: var(--white);
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.user-avatar {
+    background: var(--primary);
+    color: var(--white);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.user-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.user-info p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.password-text {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.password-hidden {
+    color: var(--text);
+}
+
+.role-tag {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+}
+
+.role-admin {
+    background-color: var(--delete);
+    color: var(--white);
+}
+
+.role-user {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.show-password-container, .show-password-container button {
+    width: 100%;
+}

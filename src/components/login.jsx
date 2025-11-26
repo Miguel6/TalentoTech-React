@@ -4,6 +4,7 @@ import { useAuth } from '../context/auth-context.jsx'
 import './../styles/admin.css'
 import './../styles/login.css'
 import { toast, Bounce } from 'react-toastify'
+import {USER_CONFIG} from "../models/constants.js";
 
 export default function Login() {
     const navigate = useNavigate()
@@ -16,10 +17,17 @@ export default function Login() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        setUsers([
-            { username: 'admin', password: 'admin123', role: 'admin' },
-            { username: 'usuario', password: 'user123', role: 'user' },
-        ])
+        const stored = localStorage.getItem(USER_CONFIG.LOCAL_STORAGE_NAME)
+        if (stored) {
+            setUsers(JSON.parse(stored))
+        } else {
+            const defaultUsers = [
+                { username: 'admin', password: 'admin123', role: 'admin' },
+                { username: 'usuario', password: 'user123', role: 'user' },
+            ]
+            localStorage.setItem(USER_CONFIG.LOCAL_STORAGE_NAME, JSON.stringify(defaultUsers))
+            setUsers(defaultUsers)
+        }
     }, [])
 
     const validateForm = () => {
@@ -51,8 +59,9 @@ export default function Login() {
         }
         setErrors({})
 
-        const userFound = users.find(
-            u =>
+        const storedUsers = JSON.parse(localStorage.getItem('users')) || []
+        const userFound = storedUsers.find(
+            (u) =>
                 u.username === form.username.trim() &&
                 u.password === form.password.trim()
         )

@@ -1,6 +1,6 @@
 export const APP = Object.freeze({
     NAME: 'Aura Animal',
-    VERSION: '1.0.0',
+    VERSION: '2.0.0',
     YEAR: '2025',
     FOOTER_DESCRIPTION: 'Todos los derechos reservados'
 
@@ -18,3 +18,6 @@ export const CART_CONFIG = Object.freeze({
     CLEAR: 'clear'
 });
 
+export const USER_CONFIG = Object.freeze({
+    LOCAL_STORAGE_NAME: 'users',
+});
