@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
 import { ROUTES } from './paths'
-import Home from '../components/Home.jsx'
+import Home from '../components/home.jsx'
 import Offers from '../components/offers.jsx'
 import Products from '../components/product.jsx'
 import ContactUs from '../components/contactUs.jsx'
