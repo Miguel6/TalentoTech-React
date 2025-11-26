@@ -55,7 +55,7 @@ E-commerce de **pet shop** para descubrir, comparar y comprar productos para mas
 
 ---
 ## 🗺️ Mejoras Futuras / Entrega Final
-- Agregar página de **Registry**.
+- Agregar página de **Registro**.
 - Agregar página de **Contacto**.
 - Agregar página de **Ofertas**.
 - Agregar página de **Administracion de Reportes**.
