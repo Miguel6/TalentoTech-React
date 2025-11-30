@@ -1,8 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import { useCart } from '../context/cart-context.jsx'
 import '../styles/cart-popover.css'
+import { toast, Bounce } from 'react-toastify'
 
-const currency = n => new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(n)
+const currency = n =>
+    new Intl.NumberFormat('es-AR', {
+        style: 'currency',
+        currency: 'ARS',
+        maximumFractionDigits: 0
+    }).format(n)
 
 export default function CartPopover({ open, onClose }) {
     const ref = useRef(null)
@@ -24,6 +30,20 @@ export default function CartPopover({ open, onClose }) {
     }, [open, onClose])
 
     if (!open) return null
+
+    const handlePay = () => {
+        clear()
+        onClose?.()
+        toast.success('Pago realizado correctamente', {
+            position: "bottom-center",
+            autoClose: 4000,
+            hideProgressBar: false,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "colored",
+            transition: Bounce
+        })
+    }
 
     return (
         <div className="cart-popover" ref={ref} role="dialog" aria-label="Carrito" aria-modal="false">
@@ -76,7 +96,7 @@ export default function CartPopover({ open, onClose }) {
                                     </div>
 
                                     <div className="cart-item__prices">
-                                        <div className="unit">P.U.:{currency(it.price)}</div>
+                                        <div className="unit">P.U.: {currency(it.price)}</div>
                                         <div className="line">{currency(it.price * it.qty)}</div>
                                     </div>
                                 </div>
@@ -86,7 +106,7 @@ export default function CartPopover({ open, onClose }) {
 
                     <footer className="cart-popover-footer">
                         <div className="actions">
-                            <a className="btn" onClick={onClose}>Pagar</a>
+                            <button className="btn" onClick={handlePay}>Pagar</button>
                         </div>
 
                         <div className="total-row">
